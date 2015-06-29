@@ -1,0 +1,104 @@
+$borderColor: rgba(0, 0, 0, 0.8);
+
+body {
+  background: url('../images/pouring-coffee.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  * {
+    box-sizing: border-box;
+  }
+}
+
+#app {
+  width: 399px;
+  height: 399px;
+  margin: 100px auto 0;
+  .grid {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    cursor: default;
+    &:not(:hover) {
+      .number-select-container {
+        display: none !important;
+      }
+    }
+    &.complete {
+      background: url('../images/drinking-coffee.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      border: 2px solid $borderColor;
+    }
+    .mini-grid {
+      width: calc(100%/3);
+      height: calc(100%/3);
+      float: left;
+      border: 2px solid $borderColor;
+      .tile {
+        width: calc(100%/3);
+        height: calc(100%/3);
+        border: 1px solid $borderColor;
+        float: left;
+        text-align: center;
+        font-size: 30px;
+        line-height: 43px;
+        position: relative;
+        &.initial-num {
+          color: rgba(0, 0, 0, 0.6);
+          font-weight: bold;
+        }
+        &:not(.initial-num):hover {
+          background-color: #FFF;
+          border-width: 2px;
+        }
+        // &.filled-in {
+
+        // }
+      }
+    }
+  }
+  .number-select-container {
+    color: #000;
+    background-color: #FFF;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    opacity: 0;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+    // transition: opacity .2s, height .2s, width .2s, top .2s, left .2s;
+    &:hover {
+      opacity: 1;
+      height: 150%;
+      width: 150%;
+      top: -25%;
+      left: -25%;
+    }
+    .number-select {
+      width: calc(100%/3);
+      height: calc(100%/3);
+      border: 1px solid $borderColor;
+      float: left;
+      text-align: center;
+      cursor: default;
+      font-size: initial;
+      line-height: initial;
+      &:hover {
+        color: #FFF;
+        background-color: #000;
+      }
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  width: 280px;
+  height: 280px;
+}
